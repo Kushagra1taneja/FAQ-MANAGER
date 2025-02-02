@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Manager</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">FAQ Manager</h1>
+        <form id="faqForm" class="mt-4">
+            <div class="form-group">
+                <input type="text" id="question" class="form-control" placeholder="Enter your question" required>
+            </div>
+            <div class="form-group">
+                <textarea id="answer" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit FAQ</button>
+        </form>
+    </div>
+
+    <script>
+        CKEDITOR.replace('answer');
+        document.getElementById('faqForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const question = document.getElementById('question').value;
+            const answer = CKEDITOR.instances.answer.getData();
+
+            fetch('/api/faqs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question, answer })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
