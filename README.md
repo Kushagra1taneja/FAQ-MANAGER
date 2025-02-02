@@ -11,7 +11,7 @@
 - [API Endpoints](#api-endpoints)
 - [Environment Variables](#environment-variables)
 - [Testing](#testing)
-- [License](#license)
+
 
 ## Introduction
 
@@ -92,7 +92,3 @@ To run tests, use the following command:
 ```bash
 npm test
 ```
-
-## License
-
-This project is licensed under the MIT License.
