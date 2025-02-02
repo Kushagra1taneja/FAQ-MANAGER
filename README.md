@@ -29,7 +29,7 @@ The FAQ Manager is a Node.js application that allows users to manage Frequently 
 
 ## Installation
 
-###Manual
+**Manual**
 
 1. **Clone the repository:**
    ```bash
@@ -56,7 +56,7 @@ The FAQ Manager is a Node.js application that allows users to manage Frequently 
    ```
 
 
-###Docker
+**Docker**
 
 1. **Build the Docker image:**
    ```bash
