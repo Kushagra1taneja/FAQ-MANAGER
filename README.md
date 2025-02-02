@@ -17,6 +17,9 @@
 
 The FAQ Manager is a Node.js application that allows users to manage Frequently Asked Questions (FAQs) with support for translations. It uses MongoDB for data storage and Redis for caching translated FAQs.
 
+![Screenshot 2025-02-02 163019](https://github.com/user-attachments/assets/39742254-c7cf-4558-ac90-af1f9edc8d02)
+
+
 ## Features
 
 - Add, update, delete, and fetch FAQs.
