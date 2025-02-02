@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb+srv://yourUser:yourPassword@yourCluster.mongodb.net/yourDatabase?retryWrites=true&w=majority
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+      - mongo
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: yourUser
+      MONGO_INITDB_ROOT_PASSWORD: yourPassword
